@@ -9,47 +9,47 @@
 </head>
 <body>
     <main id="home">
-        <div class="home-text">
+        <div class="home-text scroll-in" data-scroll='left'>
             <h1 class="home-title">Oi,
                 meu nome é <span class="my-name">Leandro Kenji Oshiro.</span>
                 Eu sou Desenvolvedor Web
             </h1>
             <a href="#sobre">SAIBA MAIS</a>
         </div>
-        <div class="home-animate"><img src="images/3ball.svg" alt="3 bolas conectadas por linhas"></div>
+        <div class="home-animate"><img src="images/3ball.svg" alt="3 bolas conectadas por linhas" id="balls"></div>
     </main>
     <section aria-label="Sobre" id="sobre">
-            <div class="sobre-text1 text-right">
+            <div class="sobre-text1 scroll-in" data-scroll='left'>
                 <h2>Sobre mim</h2>
-                <p>Já atuei como <span class="text-green">programador web</span>, realizava a manutenção e correção de bugs de um aplicativo Web e o desenvolvimento de um novo módulo.
+                <p class="text-right">Já atuei como <span class="text-green">programador web</span>, realizava a manutenção e correção de bugs de um aplicativo Web e o desenvolvimento de um novo módulo.
                 </p>
             </div>
-            <div class="sobre-img si-1">
+            <div class="sobre-img si-1 scroll-in" data-scroll='right'>
                 <img src="images/3ball.svg" alt="3 bolas conectadas por linhas">
             </div>
-            <div class="sobre-img si-2">
+            <div class="sobre-img si-2 scroll-in" data-scroll='left'>
                 <img src="images/3ball.svg" alt="3 bolas conectadas por linhas">
             </div>
-            <div class="sobre-text2">
+            <div class="sobre-text2 scroll-in" data-scroll='right'>
                 <p>Na faculdade de <span class="text-green">Análise e Desenvolvimento de Sistemas</span>, tive a oportunidade de ser monitor de lógica de programação. Aprendi muito como resolver problemas e explicar de forma ditática o que estava fazendo.
                 </p>
             </div>
-            <div class="sobre-text3 text-right">
+            <div class="sobre-text3 text-right scroll-in" data-scroll='left'>
                 <p>
                     Após 2013, fui para a àrea de comportamento de animais pet. Atuei ajudando famílias a lidar com seus pets e ministrando aulas e palestras sobre o assunto para tutores e outros profissionais da área. 
                 </p>
             </div>
-            <div class="sobre-img si-3">
+            <div class="sobre-img si-3 scroll-in" data-scroll='right'>
                 <img src="images/3ball.svg" alt="3 bolas conectadas por linhas">
             </div>
-            <div class="sobre-text4">
+            <div class="sobre-text4 scroll-in" data-scroll='bottom'>
                 <p>
                     Agora em 2022 voltei com tudo aos estudos em tecnologia. Atualmente estudando <span class="text-green">JavaScript</span> e suas bibliotecas e frameworks
                 </p>
             </div>
     </section>
     <section aria-lavel="Stacks e Estudos" id="stack-estudos">
-        <div class="stack">
+        <div class="stack scroll-in" data-scroll='left'>
             <h2>Stack</h2>
             <p>Algumas linguagens e tecnologias que já tive experiência e que estou estudando.</p>
             <div class="stack-lista">
@@ -85,7 +85,7 @@
                 </ul>
             </div>
         </div>
-        <div class="estudos">
+        <div class="estudos scroll-in" data-scroll='right'>
             <h2>Estudos</h2>
             <ul class="estudos-lista">
                 <li>
@@ -127,113 +127,115 @@
                 </ul>
             </div>
             <div class="projetos-container-wraper">
-                <div class="projeto-item">
-                    <div class="content">
-                    </div>
-                    <div class="projeto-descricao-content">
-                        <div class="projeto-descricao">
-                            <h3>FORMULÁRIO DE INSCREVA-SE</h3>
-                            <p>Esse formuláriopegaos dados do usuário e faz validação do tipo de dados, atualiza na api e manda para o servidor.</p>
+                <div class="projetos-slider">
+                    <div class="projeto-item">
+                        <div class="content">
                         </div>
-                        <div class="projeto-stacks">
-                            <h4>STACKS UTILIZADAS</h4>
-                            <ul>
-                                <li>TYPESCRIPT</li>
-                                <li>PHP</li>
-                                <li>JAVA</li>
-                            </ul>
-                        </div>
-                        <div class="projeto-content-links">
-                            <a href="">SAIBA MAIS</a>
-                            <a href="">VER FUNCIONANDO</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="projeto-item">
-                    <div class="content">
-                    </div>
-                    <div class="projeto-descricao-content">
-                        <div class="projeto-descricao">
-                            <h3>FORMULÁRIO DE INSCREVA-SE</h3>
-                            <p>Esse formuláriopegaos dados do usuário e faz validação do tipo de dados, atualiza na api e manda para o servidor.</p>
-                        </div>
-                        <div class="projeto-stacks">
-                            <h4>STACKS UTILIZADAS</h4>
-                            <ul>
-                                <li>TYPESCRIPT</li>
-                                <li>PHP</li>
-                                <li>JAVA</li>
-                            </ul>
-                        </div>
-                        <div class="projeto-content-links">
-                            <a href="">SAIBA MAIS</a>
-                            <a href="">VER FUNCIONANDO</a>
+                        <div class="projeto-descricao-content">
+                            <div class="projeto-descricao">
+                                <h3>FORMULÁRIO DE INSCREVA-SE</h3>
+                                <p>Esse formuláriopegaos dados do usuário e faz validação do tipo de dados, atualiza na api e manda para o servidor.</p>
+                            </div>
+                            <div class="projeto-stacks">
+                                <h4>STACKS UTILIZADAS</h4>
+                                <ul>
+                                    <li>TYPESCRIPT</li>
+                                    <li>PHP</li>
+                                    <li>JAVA</li>
+                                </ul>
+                            </div>
+                            <div class="projeto-content-links">
+                                <a href="">SAIBA MAIS</a>
+                                <a href="">VER FUNCIONANDO</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="projeto-item">
-                    <div class="content">
-                    </div>
-                    <div class="projeto-descricao-content">
-                        <div class="projeto-descricao">
-                            <h3>FORMULÁRIO DE INSCREVA-SE</h3>
-                            <p>Esse formuláriopegaos dados do usuário e faz validação do tipo de dados, atualiza na api e manda para o servidor.</p>
+                    <div class="projeto-item">
+                        <div class="content">
                         </div>
-                        <div class="projeto-stacks">
-                            <h4>STACKS UTILIZADAS</h4>
-                            <ul>
-                                <li>TYPESCRIPT</li>
-                                <li>PHP</li>
-                                <li>JAVA</li>
-                            </ul>
-                        </div>
-                        <div class="projeto-content-links">
-                            <a href="">SAIBA MAIS</a>
-                            <a href="">VER FUNCIONANDO</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="projeto-item">
-                    <div class="content">
-                    </div>
-                    <div class="projeto-descricao-content">
-                        <div class="projeto-descricao">
-                            <h3>FORMULÁRIO DE INSCREVA-SE</h3>
-                            <p>Esse formuláriopegaos dados do usuário e faz validação do tipo de dados, atualiza na api e manda para o servidor.</p>
-                        </div>
-                        <div class="projeto-stacks">
-                            <h4>STACKS UTILIZADAS</h4>
-                            <ul>
-                                <li>TYPESCRIPT</li>
-                                <li>PHP</li>
-                                <li>JAVA</li>
-                            </ul>
-                        </div>
-                        <div class="projeto-content-links">
-                            <a href="">SAIBA MAIS</a>
-                            <a href="">VER FUNCIONANDO</a>
+                        <div class="projeto-descricao-content">
+                            <div class="projeto-descricao">
+                                <h3>FORMULÁRIO DE INSCREVA-SE</h3>
+                                <p>Esse formuláriopegaos dados do usuário e faz validação do tipo de dados, atualiza na api e manda para o servidor.</p>
+                            </div>
+                            <div class="projeto-stacks">
+                                <h4>STACKS UTILIZADAS</h4>
+                                <ul>
+                                    <li>TYPESCRIPT</li>
+                                    <li>PHP</li>
+                                    <li>JAVA</li>
+                                </ul>
+                            </div>
+                            <div class="projeto-content-links">
+                                <a href="">SAIBA MAIS</a>
+                                <a href="">VER FUNCIONANDO</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="projeto-item">
-                    <div class="content">
+                    <div class="projeto-item">
+                        <div class="content">
+                        </div>
+                        <div class="projeto-descricao-content">
+                            <div class="projeto-descricao">
+                                <h3>FORMULÁRIO DE INSCREVA-SE</h3>
+                                <p>Esse formuláriopegaos dados do usuário e faz validação do tipo de dados, atualiza na api e manda para o servidor.</p>
+                            </div>
+                            <div class="projeto-stacks">
+                                <h4>STACKS UTILIZADAS</h4>
+                                <ul>
+                                    <li>TYPESCRIPT</li>
+                                    <li>PHP</li>
+                                    <li>JAVA</li>
+                                </ul>
+                            </div>
+                            <div class="projeto-content-links">
+                                <a href="">SAIBA MAIS</a>
+                                <a href="">VER FUNCIONANDO</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="projeto-descricao-content">
-                        <div class="projeto-descricao">
-                            <h3>FORMULÁRIO DE INSCREVA-SE</h3>
-                            <p>Esse formuláriopegaos dados do usuário e faz validação do tipo de dados, atualiza na api e manda para o servidor.</p>
+                    <div class="projeto-item">
+                        <div class="content">
                         </div>
-                        <div class="projeto-stacks">
-                            <h4>STACKS UTILIZADAS</h4>
-                            <ul>
-                                <li>TYPESCRIPT</li>
-                                <li>PHP</li>
-                                <li>JAVA</li>
-                            </ul>
+                        <div class="projeto-descricao-content">
+                            <div class="projeto-descricao">
+                                <h3>FORMULÁRIO DE INSCREVA-SE</h3>
+                                <p>Esse formuláriopegaos dados do usuário e faz validação do tipo de dados, atualiza na api e manda para o servidor.</p>
+                            </div>
+                            <div class="projeto-stacks">
+                                <h4>STACKS UTILIZADAS</h4>
+                                <ul>
+                                    <li>TYPESCRIPT</li>
+                                    <li>PHP</li>
+                                    <li>JAVA</li>
+                                </ul>
+                            </div>
+                            <div class="projeto-content-links">
+                                <a href="">SAIBA MAIS</a>
+                                <a href="">VER FUNCIONANDO</a>
+                            </div>
                         </div>
-                        <div class="projeto-content-links">
-                            <a href="">SAIBA MAIS</a>
-                            <a href="">VER FUNCIONANDO</a>
+                    </div>
+                    <div class="projeto-item">
+                        <div class="content">
+                        </div>
+                        <div class="projeto-descricao-content">
+                            <div class="projeto-descricao">
+                                <h3>FORMULÁRIO DE INSCREVA-SE</h3>
+                                <p>Esse formuláriopegaos dados do usuário e faz validação do tipo de dados, atualiza na api e manda para o servidor.</p>
+                            </div>
+                            <div class="projeto-stacks">
+                                <h4>STACKS UTILIZADAS</h4>
+                                <ul>
+                                    <li>TYPESCRIPT</li>
+                                    <li>PHP</li>
+                                    <li>JAVA</li>
+                                </ul>
+                            </div>
+                            <div class="projeto-content-links">
+                                <a href="">SAIBA MAIS</a>
+                                <a href="">VER FUNCIONANDO</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -247,13 +249,13 @@
         </div>
     </section>
     <section id="contato">
-        <h2>Conecte-se com Leandro Kenji Oshiro</h2>
-        <div class="contato-email">
+        <h2 class="scroll-in" data-scroll='left'>Conecte-se com Leandro Kenji Oshiro</h2>
+        <div class="contato-email scroll-in" data-scroll='left'>
             <p>E-MAIL:</p>
             <p class="mail">leandro.k.oshiro@gmail.com</p>
             <img src="images/copy-icon.svg" alt="Copiar">
         </div>
-        <div class="contato-redes">
+        <div class="contato-redes scroll-in" data-scroll='bottom'>
             <a href=""><img src="images/linkedin-icon.svg" alt="Logotipo Linkedin" class="linkedin"></a>
             <a href=""><img src="images/github-icon.svg" alt="Logotipo GitHub"></a>
         </div>
@@ -261,5 +263,6 @@
     <footer>
         <p>Desenvolvido por Leandro Kenji Oshiro</p>
     </footer>
+    <script src="assets/script.js"></script>
 </body>
 </html>

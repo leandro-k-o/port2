@@ -1,6 +1,14 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Belgrano&family=Inter:wght@400;700&display=swap');
 
+html{
+    scroll-behavior: smooth;
+}
+
+:root{
+    --degree: 30deg;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -91,7 +99,12 @@ main#home a{
 }
 
 main#home div.home-animate{
-    margin-bottom:20px;
+    margin-bottom:40px;
+}
+
+main#home div.home-animate img{
+    width: 60px;
+    height: 60px;
 }
 
 /* SOBRE */
@@ -114,18 +127,9 @@ section#sobre h2{
     line-height: 1.5;
     color: #071540;
     position: relative;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
+    text-align: right;
 }
-
-/* section#sobre h2::before{
-    position: absolute;
-    bottom:-20px;
-    right:0;
-    content:"";
-    width: 200px;
-    height: 5px;
-    background-color: #CCDED4;
-} */
 
 #sobre p{
     color: #445F50;
@@ -144,6 +148,7 @@ section#sobre h2{
 
 .text-right{
     text-align: right;
+    
 }
 
 .text-right::after{
@@ -412,19 +417,25 @@ ul.projetos-menu-lista li a span{
 .projetos-container-wraper{
     width: min(70vw + 106px, 706px);
     height: 506px;
-    background: #84D9B1;
+    background-color: #F5F5F5;
     border: 3px solid rgba(7, 21, 64, 0.2);
     border-radius: 5px;
-    display: grid;
-    grid-template-rows: 2fr 1fr;
+    overflow-x: scroll;
+}
+
+.projetos-slider{
+    display: flex;
+    gap: 40px;
 }
 
 .projeto-item{
-    width: min(70vw + 100px, 700px);
+    width: 100%; /* min(70vw + 100px, 700px); */
     height: 500px;
     background: #84D9B1;
     display: grid;
     grid-template-rows: 2fr 1fr;
+
+    flex-shrink: 0;
 }
 
 .projeto-descricao-content{
@@ -598,6 +609,39 @@ footer{
     justify-content: center;
 }
 
+/* ANIMAÇÕES */
+
+.scroll-in{
+    opacity: 0;
+    transition: .5s;
+}
+
+[data-scroll='left']{
+    transform: translate3d(-50px,0,0);
+}
+
+[data-scroll='right']{
+    transform: translate3d(50px,0,0);
+}
+
+[data-scroll='bottom']{
+    transform: translate3d(0,50px,0);
+}
+
+.scrolled{
+    transform: translate3d(0,0,0);
+    opacity: 1;
+}
+
+#balls{
+    transition: .1s;
+
+}
+
+.rotate-ball{
+    transform: rotate(var(--degree));
+}
+
 @media (max-width:660px){
     main#home a{
         margin: auto;
@@ -618,7 +662,6 @@ footer{
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        margin-bottom: 20px;
     }
 
     .si-1{
