@@ -5,10 +5,6 @@ html{
     scroll-behavior: smooth;
 }
 
-:root{
-    --degree: 30deg;
-}
-
 *{
     margin: 0;
     padding: 0;
@@ -96,6 +92,12 @@ main#home a{
     font-weight: bold;
     font-size: clamp(.8rem,.5vw + .5rem, 1rem);
     border: 3px solid #C6E0D1;
+    transition: .3s;
+}
+
+main#home a:hover{
+    background-color: #071D11;
+    border: 3px solid #c6e0d100;
 }
 
 main#home div.home-animate{
@@ -327,7 +329,7 @@ div.stack-lista{
 
 section#projetos{
     background-color: #F5F5F5;
-    min-height: 100vh;
+    height: min(100%);
     padding: 40px min(3%, 40px)/*clamp(1rem, 5vw + 1rem, 10rem); */
 }
 
@@ -341,14 +343,15 @@ section#projetos{
     bottom: -20px;
     left:-1rem;
     content:"";
-    width: 200px;
+    width: var(--widthH2B);
     height: 5px;
     background-color: #CCDED4;
+    transition: .5s;
 }
 
 .projetos-container{
     width: 100%;
-    height: 100vh;
+    height: 80%;
     margin: 40px auto;
     padding-left: 2rem;
     display: grid;
@@ -360,11 +363,12 @@ section#projetos{
     position: absolute;
     content:"";
     width: 5px;
-    height: 100%;
+    height: var(--heightPCB);
     background-color: #CCDED4;
     left:0;
     top: -20px;
     border-radius: 0 0 3px 3px;
+    transition: .5s;
 }
 
 .projetos-menu{
@@ -379,17 +383,19 @@ ul.projetos-menu-lista{
 
 ul.projetos-menu-lista li{
     position: relative;
+    transition: .6s;
 }
 
 ul.projetos-menu-lista li::before{
     position: absolute;
     content:"";
-    width: 28px;
+    width: var(--widthLi);
     height: 5px;
     background-color: #CCDED4;
     left:-30px;
     bottom: 25px;
     border-radius: 0 0 3px 3px;
+    transition: .5s;
 }
 
 ul.projetos-menu-lista li img{
@@ -398,45 +404,73 @@ ul.projetos-menu-lista li img{
 
 ul.projetos-menu-lista li a{
     font-family: 'Belgrano';
-    font-style: normal;
     font-weight: 400;
-    font-size: 18px;
-    line-height: 18px;
+    font-size: 1.125rem;
+    line-height: 1.125rem;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
     color: #445F50;
     display:flex;
     align-items: center;
     width: fit-content;
+    transition: .3s;
 }
 
+ul.projetos-menu-lista li a:hover{
+    font-weight: 500;
+    color: #639d7e;
+}
+
+ul.projetos-menu-lista li a div{
+    width: 60px;
+    height: 60px;
+    background-image: url('../images/path.svg');
+    transition: .5s;
+}
+
+ul.projetos-menu-lista li a:hover div, ul.projetos-menu-lista li a div.produto-active{
+    width: 60px;
+    height: 60px;
+    background-image: url('../images/opened-path.svg');
+}
+
+
 ul.projetos-menu-lista li a span{
-    padding-left: 1rem;
+    padding: 0 1rem;
 }
 
 .projetos-container-wraper{
-    width: min(70vw + 106px, 706px);
-    height: 506px;
+    width: min(60vw + 106px, 500px);
+    height: 100%;
     background-color: #F5F5F5;
-    border: 3px solid rgba(7, 21, 64, 0.2);
     border-radius: 5px;
-    overflow-x: scroll;
+    overflow-x: hidden;
+    display: block;
 }
 
 .projetos-slider{
     display: flex;
-    gap: 40px;
+    opacity: 0;
+    transition: .5s;
+    transform: translate3d(var(--item),0,0);
+}
+
+.projetos-slider-active{
+    opacity: 1;
 }
 
 .projeto-item{
-    width: 100%; /* min(70vw + 100px, 700px); */
-    height: 500px;
+    width: 90%; /* min(70vw + 100px, 700px); */
+    height: 494px;
     background: #84D9B1;
     display: grid;
     grid-template-rows: 2fr 1fr;
-
+    margin: 0 40px;
+    border: 3px solid rgba(7, 21, 64, 0.2);
     flex-shrink: 0;
+    transition: .3s;
 }
+
 
 .projeto-descricao-content{
     background: #071540;
@@ -504,6 +538,17 @@ ul.projetos-menu-lista li a span{
     color: #84D9B1;
     padding: 6px 10px;
     border: 1px solid #84D9B1;
+    transition: .3s;
+}
+
+.projeto-content-links a:hover{
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: .75rem;
+    background-color: #84D9B1;
+    color: #071540;
+    padding: 6px 10px;
+    border: 1px solid #07154000;
 }
 
 .projetos-setas{
@@ -592,6 +637,11 @@ section#contato h2{
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: .3s;
+}
+
+#contato .contato-redes a:hover{
+    transform: translate3d(0, -10px, 0);
 }
 
 #contato .contato-redes img{
