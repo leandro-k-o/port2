@@ -26,9 +26,6 @@ class Scroll{
 
 class ScrollIn extends Scroll {
 
-    super(name){
-    }
-
     verElementos(){
         this.options = {
             threshold: .9,
@@ -86,10 +83,6 @@ class RotateBall extends Scroll{
 }
 
 class Projetos extends Scroll{
-
-    
-
-    super(name){}
 
     init(){
             this.h2 = document.querySelector('#projetos h2');
@@ -161,10 +154,6 @@ class Projetos extends Scroll{
             el.style.setProperty('opacity','1');
         }))     
     }  
-
-    projPromisse(){
-        return this.projPromisse;
-    }
         
 }
 
@@ -200,8 +189,6 @@ class ProjetosSlider {
         })
         if(this.lastActive === null)
             this.selecionarItem(this.itemMedidas[0]);
-
-        console.log(this)
     }
 
     setAllItems(){
@@ -236,6 +223,18 @@ class ProjetosSlider {
     }
 }
 
+
+function copyToClipboard(){
+    const btn = document.querySelector('.copy-button');
+    const email = document.querySelector('.mail');
+    const contatoEmail = document.querySelector('.contato-email');
+    console.log(contatoEmail)
+    btn.addEventListener('click',()=> {
+        window.navigator.clipboard.writeText(email.innerText);
+        contatoEmail.style.setProperty('--opacityCopy','1');
+        setTimeout(()=>contatoEmail.style.setProperty('--opacityCopy','0'),3000);
+    });
+}
 let projetoLoad;
 let projeto;
 window.addEventListener("load",() => {
@@ -243,10 +242,10 @@ window.addEventListener("load",() => {
     new RotateBall('#balls');
     if(window.innerWidth > 1050){
         projeto = new Projetos('.projetos-container');
+        copyToClipboard();
     }
-    let p = projeto.projPromisse()
-    console.log(p) 
-    projetoLoad = new ProjetosSlider();
+    projetoLoad = new ProjetosSlider(); 
+    console.log(navigator)
     window.scrollTo(0,0);
 });
 

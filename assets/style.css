@@ -49,9 +49,10 @@ main#home{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
     gap: 80px;
     height: 100vh;
+    padding-top: 10%;
 }
 
 div.home-text{
@@ -114,12 +115,12 @@ main#home div.home-animate img{
 section#sobre{
     background-color: #F2F2F2;
     min-height: 100vh;
-    margin:auto;
+    margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
     align-items: center;
-    padding: 40px min(3%,80px); /*clamp(1rem, 5vw + 1rem, 8rem); */
+    padding: 10% min(3%,80px); /*clamp(1rem, 5vw + 1rem, 8rem); */
     row-gap: 80px;
 }
 
@@ -226,7 +227,7 @@ section#sobre h2{
 section#stack-estudos{
     border-top: 5px solid #071540;
     background-color: #77C198;
-    padding: 40px min(3%,80px);
+    padding: 10% min(3%,80px);
     display: flex;
     gap:1rem;
 }
@@ -552,7 +553,12 @@ ul.projetos-menu-lista li a span{
 }
 
 .projetos-setas{
-    display: none;
+    display: var(--displayArrow, none);
+    align-items: center;
+    justify-content: space-around;
+    grid-column: 2;
+    padding-top: 20px;
+    width: min(60vw + 106px, 500px);
 }
 
 @media (max-width:1050px){
@@ -609,12 +615,30 @@ section#contato h2{
     display: grid;
     grid-template-columns: 1fr 1fr;
     width:fit-content;
+    position: relative;
+}
+
+.contato-email::after {
+    color: #071540;
+    content: 'E-mail copiado';
+    position: absolute;
+    top: 20px;
+    right: 175px;
+    padding: 8px;
+    width: fit-content;
+    border: 2px solid rgba(196, 203, 198, 0.2);
+    border-radius: 3px;
+    background-color: #C4CBC6;
+    opacity: var(--opacityCopy, 0);
+    transition: .3s;
 }
 
 .contato-email img {
     padding-left: 20px;
     cursor: pointer;
 }
+
+
 
 .contato-email p{
     font-family: 'Inter';
