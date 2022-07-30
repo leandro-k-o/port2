@@ -165,39 +165,35 @@ class ProjetosSlider {
     }
     
     init(){
+        this.verificarTamanho();
         this.projetoItem.forEach((item,i)=>{
             this.itemMedidas.push({
                 'item': item, 
                 'offsetleft': item.offsetLeft,
                 'medida': this.calcularMedida(item)
             });
-
-            this.projetosMenu[i].addEventListener('mouseover',(e) => {
-                this.selecionarItem(this.itemMedidas[i]);
-            })
-
-            this.projetosMenu[i].addEventListener('mouseout',(e) => {   
-                this.selecionarMenu(e, i);    
-                //this.slider.classList.remove('projetos-slider-active');
-            })
-
-            this.projetosMenu[i].addEventListener('click',(e) => {
-                e.preventDefault();
-                this.selecionarItem(this.itemMedidas[i]);
-                this.selecionarMenu(e, i);
-            })
         })
+
+        if(this.arrows){
+            if(!this.setasAtivadas)
+                this.adicionarEventosSetas();
+        }else{
+            this.projetoItem.forEach((item,i)=>{
+                this.adicionarEventosMenu(i)
+            })   
+        }
+        
         if(this.lastActive === null)
             this.selecionarItem(this.itemMedidas[0]);
     }
 
     setAllItems(){
-        this.slider = document.querySelector('.projetos-slider');
-        this.projetoItem = document.querySelectorAll('.projeto-item');
-        this.wraper = document.querySelector('.projetos-container-wraper');
-        this.projetosMenu = document.querySelectorAll('.projetos-menu-lista li a');
-        this.itemMedidas = [];
-        this.lastActive = null;
+        this.slider         =       document.querySelector('.projetos-slider');
+        this.projetoItem    =       document.querySelectorAll('.projeto-item');
+        this.wraper         =       document.querySelector('.projetos-container-wraper');
+        this.projetosMenu   =       document.querySelectorAll('.projetos-menu-lista li a');
+        this.itemMedidas    =       [];
+        this.lastActive     =       null;
     }
 
     refresh(){
@@ -221,6 +217,58 @@ class ProjetosSlider {
             this.projetosMenu[this.lastActive].children[0].classList.remove('produto-active');
         this.lastActive = i;
     }
+
+    adicionarEventosMenu(i){
+        this.projetosMenu[i].addEventListener('mouseover',() => {
+            this.selecionarItem(this.itemMedidas[i]);
+        })
+
+        this.projetosMenu[i].addEventListener('mouseout',(e) => {   
+            this.selecionarMenu(e, i);    
+        })
+
+        this.projetosMenu[i].addEventListener('click',(e) => {
+            e.preventDefault();
+            this.selecionarItem(this.itemMedidas[i]);
+            this.selecionarMenu(e, i);
+        })
+    }
+
+    adicionarEventosSetas(){
+        this.arrowLeft  =       document.querySelector(".arrowLeft");
+        this.arrowRight =       document.querySelector(".arrowRight");  
+        this.setasAtivadas =    true;
+
+        this.arrowLeft.addEventListener('click',(e) => {
+            e.preventDefault();
+            if(this.temProximo(0)){
+                this.lastActive--;
+                this.selecionarItem(this.itemMedidas[this.lastActive]);
+            }
+        })
+
+        this.arrowRight.addEventListener('click',(e) => {
+            e.preventDefault();
+            if(this.temProximo(1)){
+                this.lastActive++;
+                this.selecionarItem(this.itemMedidas[this.lastActive]);
+            }
+        })    
+    }
+
+    temProximo(n){
+        if(n)
+            return (this.lastActive < this.projetoItem.length - 1) ? true : false;
+        return (this.lastActive > n) ? true : false; 
+    }
+
+    verificarTamanho(){
+        this.arrows =           (window.innerWidth < 1050) ? true : false;
+        const divArrows =       document.querySelector('.projetos-setas');
+        let displayDivArrows =  this.arrows ? 'flex' : 'none';
+
+        divArrows.style.setProperty('--displayArrow',displayDivArrows);
+    }
 }
 
 
@@ -232,12 +280,13 @@ function copyToClipboard(){
     btn.addEventListener('click',()=> {
         window.navigator.clipboard.writeText(email.innerText);
         contatoEmail.style.setProperty('--opacityCopy','1');
-        setTimeout(()=>contatoEmail.style.setProperty('--opacityCopy','0'),3000);
+        setTimeout(()=>contatoEmail.style.setProperty('--opacityCopy','0'),1500);
     });
 }
 let projetoLoad;
 let projeto;
 window.addEventListener("load",() => {
+    window.scrollTo(0,0);
     new ScrollIn('.scroll-in');
     new RotateBall('#balls');
     if(window.innerWidth > 1050){
@@ -245,13 +294,12 @@ window.addEventListener("load",() => {
         copyToClipboard();
     }
     projetoLoad = new ProjetosSlider(); 
-    console.log(navigator)
-    window.scrollTo(0,0);
 });
 
 window.onresize = () => 
 {
     projetoLoad.refresh();
+    console.log(navigator)
 }
 
 
