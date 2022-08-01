@@ -293,9 +293,9 @@ window.addEventListener("load",() => {
         projeto = new Projetos('.projetos-container');
         copyToClipboard();
     }
-    projetoLoad = new ProjetosSlider(); 
+    setTimeout(()=>projetoLoad = new ProjetosSlider(),1000); 
+    
 });
-
 window.onresize = () => 
 {
     projetoLoad.refresh();
