@@ -41,10 +41,6 @@ h2{
     position: relative;
 }
 
-p.code{
-    font-family: 'Belgrano', serif;
-}
-
 main#home{
     background-color: #2CBF6C;
     display: flex;
@@ -117,7 +113,6 @@ section#sobre{
     background-color: #F2F2F2;
     min-height: 100vh;
     margin: auto;
-
 }
 
 .sobre-content{
@@ -448,20 +443,30 @@ ul.projetos-menu-lista li a span{
 
 .projetos-container-wraper{
     width: min(60vw + 106px, 600px);
-    height: 100%;
+    height: calc(100% + 2rem);
     background-color: #F5F5F5;
-    overflow-x: hidden;
+    overflow-x: scroll;
     display: block;
 }
 
+.js .projetos-container-wraper{
+    overflow-x: hidden;
+}
+
 .projetos-slider{
+    display: flex;
+    opacity: 1;
+    transition: .5s;
+}
+
+.js .projetos-slider{
     display: flex;
     opacity: 0;
     transition: .5s;
     transform: translate3d(var(--item),0,0);
 }
 
-.projetos-slider-active{
+.js .projetos-slider-active{
     opacity: 1;
 }
 
@@ -472,9 +477,20 @@ ul.projetos-menu-lista li a span{
     display: grid;
     grid-template-rows: 2fr 1fr;
     margin: 0 40px;
-    border: 3px solid rgba(7, 21, 64, 0.2);
+    border: 1px solid rgba(7, 21, 64, 0.2);
     flex-shrink: 0;
     transition: .3s;
+}
+
+.projeto-content{
+    display: flex;
+    width: 100%;
+    max-height: 287px;
+}
+
+.projeto-content img{
+    width: 100%;
+    object-fit: cover;
 }
 
 
@@ -495,10 +511,7 @@ ul.projetos-menu-lista li a span{
 }
 
 .projeto-descricao p{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1rem;
+    font-size: .8rem;
     margin-top: 1rem;
     color: #C4CBC6; 
 }
@@ -541,18 +554,30 @@ ul.projetos-menu-lista li a span{
     font-weight: 700;
     font-size: .75rem;
     color: #84D9B1;
-    padding: 6px 10px;
+    padding: .625rem;
     border: 1px solid #84D9B1;
+    transition: .3s;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.projeto-content-links a .saiba-mais-icon, .js .icon-github{
+    height: 1.625rem;
+    width: 1.625rem;
+    margin: -.375rem;
+    fill:#84D9B1;
     transition: .3s;
 }
 
+.js .projeto-content-links a:hover .icon-github{
+    fill: #071540;
+}
+
 .projeto-content-links a:hover{
-    font-family: 'Inter';
-    font-weight: 700;
-    font-size: .75rem;
     background-color: #84D9B1;
     color: #071540;
-    padding: 6px 10px;
     border: 1px solid #07154000;
 }
 
@@ -564,6 +589,16 @@ ul.projetos-menu-lista li a span{
     grid-column: 2;
     padding-top: 20px;
     width: min(60vw + 106px, 500px);
+}
+
+.js .arrow-left:hover{
+    transition: .3s;
+    transform: scale3d(1.3, 1.3, 1.3);
+}
+
+.js .arrow-right:hover{
+    transition: .3s;
+    transform: scale3d(1.3, 1.3, 1.3);
 }
 
 @media (max-width:1050px){
@@ -582,9 +617,7 @@ ul.projetos-menu-lista li a span{
 
     .projetos-container::before{
         display: none;
-    }
-
-    
+    }  
 }
 
 /* SECTION CONTATO  */
@@ -642,8 +675,6 @@ section#contato h2{
     cursor: pointer;
 }
 
-
-
 .contato-email p{
     font-family: 'Inter';
     font-weight: 700;
@@ -658,24 +689,23 @@ section#contato h2{
 #contato .contato-redes{
     display: flex;
     margin-top: 80px;
-    gap: calc(10vw + 1rem);
 }
 
 #contato .contato-redes a{
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     transition: .3s;
+    cursor:pointer;
 }
 
 #contato .contato-redes a:hover{
-    transform: translate3d(0, -10px, 0);
+    transform: translate3d(10px, 0, 0) scale3d(1.2, 1.2, 1.5);
 }
 
 #contato .contato-redes img{
-    width: min(5vw + 3.8rem, 100%);
+    width: min(1vw + 3.8rem, 30%);
 }
-
 
 footer{
     background-color: #090F23;
@@ -689,24 +719,24 @@ footer{
 
 /* ANIMAÇÕES */
 
-.scroll-in{
+.js .scroll-in{
     opacity: 0;
     transition: .5s;
 }
 
-[data-scroll='left']{
+.js [data-scroll='left']{
     transform: translate3d(-50px,0,0);
 }
 
-[data-scroll='right']{
+.js [data-scroll='right']{
     transform: translate3d(50px,0,0);
 }
 
-[data-scroll='bottom']{
+.js [data-scroll='bottom']{
     transform: translate3d(0,50px,0);
 }
 
-.scrolled{
+.js .scrolled{
     transform: translate3d(0,0,0);
     opacity: 1;
 }
@@ -720,11 +750,7 @@ footer{
 }
 
 @media (max-width:660px){
-    main#home a{
-        margin: auto;
-    }
-
-    section#sobre{
+    section#sobre .sobre-content{
         grid-template-columns: 1fr;
         height: fit-content;
         gap: 4rem;
@@ -732,6 +758,10 @@ footer{
 
     .sobre-text1 p, .sobre-text2{
         text-align: center;
+    }
+
+    .sobre-img{
+        margin:auto;
     }
 
     section#sobre h2{

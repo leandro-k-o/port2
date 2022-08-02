@@ -1,0 +1,7 @@
+
+
+<p>
+                        Após 2013, fui para a àrea de comportamento de animais pet. Atuei ajudando famílias a lidar com seus pets e ministrando aulas e palestras sobre o assunto para tutores e outros profissionais da área.
+                    </p>
+                    <p>
+                        Agora em 2022 voltei com tudo aos estudos em tecnologia. Atualmente estou me dedicando aos estudos de tecnologias web frontend: HTML, CSS, <span class="text-green">JavaScript</span> e Vue.js.

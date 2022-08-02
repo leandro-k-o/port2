@@ -48,9 +48,6 @@ class ScrollIn extends Scroll {
 
 class RotateBall extends Scroll{
 
-    super(name){
-    }
-
     verElementos(){
         this.ball = this.elements[0];
         this.options = {
@@ -271,6 +268,35 @@ class ProjetosSlider {
     }
 }
 
+class Imagens {
+    constructor(){
+    }
+
+    pegarImagem(nome){
+        const image = document.querySelector(nome);
+        return image;
+    }
+
+    async pegarImagemSVG(img){
+        const imagem = await fetch(img.src);
+        const data = await imagem.text();
+        const span = document.createElement('span')
+        span.innerHTML = data;
+        const svgImage = span.querySelector('svg');
+        return svgImage;
+    }
+
+    async replaceImgToSvg(tagImg){
+        const image = this.pegarImagem(tagImg);
+        if(image){
+            const svgImg = await this.pegarImagemSVG(image);
+            const parentTag = image.parentElement;
+            parentTag.replaceChild(svgImg,image)
+        } 
+    }
+}
+
+const imagensSvg = new Imagens()
 
 function copyToClipboard(){
     const btn = document.querySelector('.copy-button');
@@ -289,17 +315,19 @@ window.addEventListener("load",() => {
     window.scrollTo(0,0);
     new ScrollIn('.scroll-in');
     new RotateBall('#balls');
+    imagensSvg.replaceImgToSvg('.saiba-mais-icon');
     if(window.innerWidth > 1050){
         projeto = new Projetos('.projetos-container');
         copyToClipboard();
     }
+    imagensSvg.replaceImgToSvg('.arrow-left');
+    imagensSvg.replaceImgToSvg('.arrow-right');
     setTimeout(()=>projetoLoad = new ProjetosSlider(),1000); 
     
 });
 window.onresize = () => 
 {
     projetoLoad.refresh();
-    console.log(navigator)
 }
 
 
